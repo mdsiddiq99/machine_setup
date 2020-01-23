@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.toolbox/bin:$PATH
+export PATH=$PATH:/usr/local/go/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/mdsddiq/.oh-my-zsh"
@@ -69,7 +70,20 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  colored-man-pages
+  colorize
+  pip
+  extract
+  python
+  fzf
+  brew
+  osx
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+)
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,3 +116,16 @@ source $ZSH/oh-my-zsh.sh
 export LC_ALL=en_US.UTF-8
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^v' edit-command-line
+
+alias devdesktop='ssh dev-dsk-mdsddiq-m4-2x-1050cf84.eu-west-1.amazon.com'
+
+export DTKlocaldriverpath="/Users/mdsddiq/Downloads/software/chromedriver"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home"
+
+function notify () {
+  echo "display notification \"$1\"" | osascript 
+}
